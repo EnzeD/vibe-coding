@@ -122,7 +122,7 @@ Congratulations, you’ve built the base game! It might be rough and lack featur
 
 ## Frequently Asked Questions
 **Q: I am making an app, not a game, is this the same workflow?**  
-**A:** It's mostly the same workflow, yes! Instead of a GDD (Game Design Document), you can do a PRD (Product Requirements Document). You can also use great tools like v0, Lovable, or Bolt.new to prototype first and then move your code to github, and then clone it to continue on Cursor with this guide.
+**A:** It's mostly the same workflow, yes! Instead of a GDD (Game Design Document), you can do a PRD (Product Requirements Document). You can also use great tools like v0, Lovable, or Bolt.new to prototype first and then move your code to GitHub, and then clone it to continue on Cursor with this guide.
 
 **Q: Your plane in your dogfight game is amazing, but I can’t replicate it in one prompt!**  
 **A:** It’s not one prompt—it’s ~30 prompts, guided by a specific `plane-implementation.md` file. Use sharp, specific prompts like “cut out space in the wings for ailerons,” not vague ones like “make a plane.”
