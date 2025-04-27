@@ -117,6 +117,7 @@ Congratulations, you’ve built the base game! It might be rough and lack featur
 - **Generate Sound Effects:** Use ElevenLabs
 - **Generate Video:** Use Sora
 - **Better prompt outputs:** Add “think as long as needed to get this right, I am not in a hurry. What matters is that you follow precisely what I ask you and execute it perfectly. Ask me questions if I am not precise enough."
+- **A simple script for initial setup:** [Vibe Coding Setup Script](https://github.com/contactstevenwarren/vibe-coding-setup) automates the creation of a standardized project structure
 
 ---
 
