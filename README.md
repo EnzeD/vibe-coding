@@ -21,14 +21,13 @@ Setting up everything correctly is key. If you’re serious about creating a ful
 ## Setting Up Everything
 
 ### 1. Game Design Document
-- Take your game idea and ask **Gemini 2.5 Pro Thinking** to create a simple **Game Design Document** in Markdown format (`.md`).  
+- Take your game idea and ask **Gemini 2.5 Pro Thinking** to create a simple **Game Design Document** in Markdown format: `game-design-document.md`.  
 - Review and refine the document to ensure it aligns with your vision. It’s fine if it’s basic—the goal is to give your AI context about the game’s structure and intent.  
 
 ### 2. Tech Stack and `.cursor/rules`
 - Ask **Gemini 2.5 Pro Thinking** to recommend the best tech stack for your game (e.g., ThreeJS and WebSocket for a multiplayer 3D game). Save this as `tech-stack.md`.
   - Challenge it to propose the *simplest yet most robust stack possible*.  
-- In Cursor, open the command palette (`Cmd + Shift + P`), type "rules", and select "Configure Rules for '.cursor'".
-- Use the `/Generate Cursor Rules` command within Cursor chat. If you have all .md files, it will make great rules.
+- In Cursor, open the chat and use the `/Generate Cursor Rules` command with selected the two .md files you created so far. This will create a set of rules `.mdc` under `.cursos/rules`.
 - **Crucially, review the generated rules.** Ensure they emphasize **modularity** (multiple files) and discourage a **monolith** (one giant file). You might need to manually tweak or add rules. Review also when they trigger.
   - **IMPORTANT:** Some rules are critical for maintaining context and should be set as **"Always"** rules in Cursor. This ensures the AI *always* refers to them before generating code. Consider adding rules like the following and marking them as "Always":
     > ```
