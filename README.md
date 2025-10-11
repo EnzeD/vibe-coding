@@ -10,6 +10,7 @@ To begin vibe coding, you only need one of these two tools:
 - **Claude Sonnet 4.5**, in Claude Code
 - **gpt-5-codex (high)**, in Codex CLI 
 
+
 This guide works for both the CLI versions (to use in the terminal) and the VSCode extension versions (both Codex and Claude Code have one, with a more recent interface).
 
 *(Note: While earlier versions of this guide utilized **Grok 3**, we then transitioned to **Gemini 2.5 Pro**. And now we're using **Claude 4.5** (or **gpt-5-codex (high)**))*
