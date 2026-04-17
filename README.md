@@ -6,14 +6,15 @@
 ---
 
 ## Getting Started
-To begin vibe coding, you only need:
-- **OpenAI GPT-5.4 (high)**, in Codex CLI or the the Codex App (select the Plus subscription for ~ $20 / month)
+To begin vibe coding, you only need one of these two tools:
+- **Claude Opus 4.7**, in Claude Code
+- **OpenAI GPT-5.4 (high)**, in Codex CLI or the Codex App (select the Plus subscription for ~ $20 / month)
 
-This guide works for both the CLI version (to use in the terminal), the VSCode extension version, or the Codex App. Right now, the Codex App is gaining a lot of love.
+This guide works for both the CLI versions (to use in the terminal) and the VSCode extension versions (both Codex and Claude Code have one, with a more recent interface). Right now, the Codex App is gaining a lot of love.
 
-*(Note: While earlier versions of this guide utilized **Grok 3**, we then transitioned to **Gemini 2.5 Pro**. And now we're using **OpenAI GPT-5.4 (high)**)*
+*(Note: While earlier versions of this guide utilized **Grok 3**, we then transitioned to **Gemini 2.5 Pro**. And now we're using **Claude Opus 4.7** (or **OpenAI GPT-5.4 (high)**))*
 
-*(Note 2: If you want to use Cursor, please check the [version 1.1](https://github.com/EnzeD/vibe-coding/tree/1.1.1) of this guide, but we believe it's less powerful than Codex CLI)*
+*(Note 2: If you want to use Cursor, please check the [version 1.1](https://github.com/EnzeD/vibe-coding/tree/1.1.1) of this guide, but we believe it's less powerful than Codex CLI or Claude Code)*
 
 Setting up everything correctly is key. If you’re serious about creating a fully functional and visually appealing game (or app), take the time to establish a solid foundation.  
 
@@ -29,6 +30,7 @@ Setting up everything correctly is key. If you’re serious about creating a ful
 - Right click, open with Code
 - Start a terminal
   - Install Codex CLI: `npm i -g @openai/codex`
+  - Or install Claude Code: `npm i -g @anthropic-ai/claude-code`
 (or download the Codex app)
 
 ### 1. Game Design Document (or Product Requirements Document for an app)
@@ -39,7 +41,7 @@ Setting up everything correctly is key. If you’re serious about creating a ful
 ### 2. Tech Stack and `AGENTS.md`
 - Ask **OpenAI GPT-5.4 (high)** to recommend the best tech stack for your game (e.g., Vite + ThreeJS and WebSocket for a multiplayer 3D game). Save this as `tech-stack.md`.
   - Challenge it to propose the *simplest yet most robust stack possible*.  
-- In your terminal, open **Codex** and use the `/init` command. It will use the two .md files you created so far. This will create a set of rules so your LLM is guided correctly.
+- In your terminal, open **Claude Code** or **Codex CLI** and use the `/init` command. It will use the two .md files you created so far. This will create a set of rules so your LLM is guided correctly.
 - **Crucially, review the generated rules.** Ensure they emphasize **modularity** (multiple files) and discourage a **monolith** (one giant file). You might need to manually tweak or add rules. Review also when they trigger.
   - **IMPORTANT:** Some rules are critical for maintaining context and should be set as **"Always"** rules. This ensures the AI *always* refers to them before generating code. Consider adding rules like the following and marking them as "Always":
     
@@ -78,15 +80,15 @@ Setting up everything correctly is key. If you’re serious about creating a ful
 Now the fun begins!
 
 ### Making sure everything is clear
-- Open **Codex** in VSCode's extension or launch it in the terminal of your project.
+- Open **Codex** or **Claude Code** in VSCode's extensions or launch Claude Code or Codex CLI in the terminal of your project.
 - Prompt: Read all the documents in `/memory-bank`, is `implementation-plan.md` clear? What are your questions to make it 100% clear for you?
 - He usually asks 9-10 questions. Answer them and prompt him to edit the `implementation-plan.md` accordingly, so it's even better.
 
 ### Your first implementation prompt
-- Open **Codex** in VSCode's extension or launch it in the terminal of your project.
+- Open **Codex** or **Claude Code** in VSCode's extensions or launch Claude Code or Codex CLI in the terminal of your project.
 - Prompt: Read all the documents in `/memory-bank`, and proceed with Step 1 of the implementation plan. I will run the tests. Do not start Step 2 until I validate the tests. Once I validate them, open `progress.md` and document what you did for future developers. Then add any architectural insights to `architecture.md` to explain what each file does.
-- **Always** start with a planning pass and once you are satisfied, allow the AI to go through the step.
-- **Extreme vibe:** Install [Superwhisper](https://superwhisper.com) to speak casually with **OpenAI GPT-5.4 (high)** instead of typing.
+- **Always** start with "Ask" mode or "Plan Mode" (`shift+tab` in Claude Code) and once you are satisfied, allow the AI to go through the step.
+- **Extreme vibe:** Install [Superwhisper](https://superwhisper.com) to speak casually with Claude or GPT-5 instead of typing.
 
 ### Workflow
 - After completing Step 1:  
@@ -107,7 +109,7 @@ Congratulations, you’ve built the base game! It might be rough and lack featur
 
 ## Fixing Bugs and Stuckness
 - If a prompt fails or breaks the game:  
-- Refine your prompt until it works. You can also commit often to git and reset when needed.
+- Use `/rewind` in Claude Code and refine your prompt until it works. If using GPT-5, you can commit often to git and reset when needed.
 - For errors:  
     - **If JavaScript:** Open the console (`F12`), copy the error, and paste it into VSCode to provide a screenshot for visual glitches.  
     - **Lazy Option:** Install [BrowserTools](https://browsertools.agentdesk.ai/installation) to skip manual copying/screenshotting.  
@@ -118,11 +120,12 @@ Congratulations, you’ve built the base game! It might be rough and lack featur
 
 ---
 
-## Codex Tips
-- **Codex in the terminal:** Run it inside VSCode's terminal to view diffs and feed additional context without leaving your workspace.
-- **Custom Codex commands or skills:** Create helpers like `/explain $arguments` that trigger a prompt such as "Do a deep-dive on the code and understand how $arguments works. Once you understand it, let me know, and I will provide the task I have for you." so the model pulls in rich context before editing.
+## Claude Code & Codex Tips
+- **Codex CLI or Claude Code in the terminal:** Run either tool inside VSCode's terminal to view diffs and feed additional context without leaving your workspace.
+- **Claude Code `/rewind`:** Use this command to roll the project back to an earlier state if an iteration misses the mark.
+- **Custom Claude Code commands:** Create helpers like `/explain $arguments` that trigger a prompt such as "Do a deep-dive on the code and understand how $arguments works. Once you understand it, let me know, and I will provide the task I have for you." so the model pulls in rich context before editing.
 - **Clearing context:** Clear context frequently with `/clear` or `/compact` if you still need previous conversations context. Keep `/context` over 50 or 60% for best performances.
-- **Save time (at your own risk):** Use `codex --yolo` to start Codex in a mode where it will never ask you confirmations.
+- **Save time (at your own risk):** Use `claude --dangerously-skip-permissions` or `codex --yolo` to start Claude Code or Codex CLI in a mode where it will never ask you confirmations.
 
 ## Other Tips
 - **Small Edits:** Use OpenAI GPT-5.4 (high)
@@ -133,8 +136,9 @@ Congratulations, you’ve built the base game! It might be rough and lack featur
 - **Generate Sound Effects:** Use ElevenLabs
 - **Generate Video:** Use Sora 2, Veo 3
 - **Better prompt outputs:** 
-    - Add “think as long as needed to get this right, I am not in a hurry. What matters is that you follow precisely what I ask you and execute it perfectly. Ask me questions if I am not precise enough." 
+    - Add “think as long as needed to get this right, I am not in a hurry. What matters is that you follow precisely what I ask you and execute it perfectly. Ask me questions if I am not precise enough.” 
     - For Codex, ask explicitly for a planning pass, tighter constraints, and deeper reasoning before execution.
+    - For Claude Code, use specific phrases to trigger deeper reasoning: `think` < `think hard` < `think harder` < `ultrathink`.
 
 ---
 
@@ -152,8 +156,8 @@ Congratulations, you’ve built the base game! It might be rough and lack featur
 **Q: Your plane in your dogfight game is amazing, but I can’t replicate it in one prompt!**  
 **A:** It’s not one prompt—it’s ~30 prompts, guided by a specific `plane-implementation.md` file. Use sharp, specific prompts like “cut out space in the wings for ailerons,” not vague ones like “make a plane.”
 
-**Q: Why is Codex better than Cursor right now?**
-**A:** It really is up to your liking. We highlight that Codex is better at using **OpenAI GPT-5.4 (high)** than Cursor is. Having it live in the terminal unlocks many more development workflows: working from any IDE, hopping onto a remote server through SSH, and so on. There are powerful customization options such as custom commands, sub-agents, and hooks that will speed up both the quality and the pace of development over time. Finally, if you’re on the lower-tier ChatGPT plan, that’s enough to get started.
+**Q: Why is Claude Code or Codex CLI better than Cursor right now?**
+**A:** It really is up to your liking. We highlight that Claude Code is better at using **Claude Opus 4.7**, and Codex CLI is better at using **OpenAI GPT-5.4 (high)** than Cursor is at using either of them. Having them live in the terminal unlocks many more development workflows: working from any IDE, hopping onto a remote server through SSH, and so on. There are powerful customization options such as custom commands, sub-agents, and hooks that will speed up both the quality and the pace of development over time. Finally, if you’re on the lower-tier Claude or ChatGPT plan, that’s enough to get started.
 
 **Q: I don't know how to set up a server for my multiplayer game**  
 **A:** Ask your AI.
