@@ -144,6 +144,7 @@ Congratulations, you’ve built the base game! It might be rough and lack featur
 - https://fly.zullo.fun/ a 3D WW2 Dogfight Arena game. All assets and code are vibe coded with the methodology from this guide. 
 - https://vibecraft.game/ a 3D game in which you can prompt anything into existence. All code, UI, and in game assets are vibe coded.
 - https://www.dow-de.com/ a web app that ranks the best player of Warhammer 40000 Dawn of War, with stats, replay upload and even a premium tier. 100% vibe coded as well with this methodology.
+- https://www.zombiesperminute.com/ a highly complex factory-building roguelite strategy game where you automate zombie-elimination outposts across procedurally generated maps to maximize one metric: zombies killed per minute. 100% vibe coded with this methodology.
   
 **Q: I am making an app, not a game, is this the same workflow?**  
 **A:** It's mostly the same workflow, yes! Instead of a GDD (Game Design Document), you can do a PRD (Product Requirements Document). You can also use great tools like v0, Lovable, or Bolt.new to prototype first and then move your code to GitHub, and then clone it to continue on VSCode or in the terminal with this guide.
